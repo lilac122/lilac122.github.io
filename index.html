@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#ffffff" />
+		<title>lilac</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+
+			.container {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 560px;
+				height: 560px;
+				font-family: 'STXinwei';
+				text-align: justify;
+				font-size: 20px;
+				line-height: 35px;
+			}
+
+			.p-2,
+			.p-3 {
+				text-indent: 40px;
+			}
+
+			.p-4,
+			.p-5 {
+				text-align: right;
+			}
+
+			#background {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0%;
+				left: 0%;
+			}
+
+			#background img {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div id="background">
+				<img src="https://img2.baidu.com/it/u=43457551,2910828684&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"
+					alt="background">
+			</div>
+
+			<div class="container">
+				<!-- 	<div class="p-1">{{paragraph0}}</div>
+				<div class="p-2">{{paragraph1}}</div>
+				<div class="p-3">{{paragraph2}}</div>
+				<div class="p-4">{{paragraph3}}</div>
+				<div class="p-5">{{paragraph4}}</div> -->
+				<div class="p-1">{{paragraph0.substring(0,p0_index)}}</div>
+				<div class="p-2">{{paragraph1.substring(0,p1_index)}}</div>
+				<div class="p-3">{{paragraph2.substring(0,p2_index)}}</div>
+				<div class="p-4">{{paragraph3.substring(0,p3_index)}}</div>
+				<div class="p-5">{{paragraph4.substring(0,p4_index)}}</div>
+			</div>
+		</div>
+		</div>
+		<script type="text/javascript">
+			window.onload = () => {
+				new Vue({
+					el: '#app',
+					data() {
+						return {
+							paragraph0: '@陈观美',
+							paragraph1: '好久不见呀，当你无论以什么方式知道这个网站并且打开时，说明我已经在远离你的路上了。也许我在你的人生中只是一名过客，但你是我精彩人生中不可或缺的一部分，我永远不会忘记有一个叫陈观美的女生从我的人生中走过并且留下浓厚的一笔，谢谢你。这个网站是我喜欢一个女生的证明，我不会删掉，想看时你我都可以看（当然，我相信你不会再次打开）。',
+							paragraph2: '在高考后我曾经对你说过一句话：“8年后，如果我未娶，你未嫁，如果你愿意，则我娶你”。如今快5年过去了，我相信结果已经很明显了，我就退出吧，但我相信奇迹会发生的，哈哈哈。如今以我现在的身份，再说一些关心的话已经不在合适了，我就不说了。只能祝福你，祝你跟你男朋友永远幸福，我相信你男朋友值得你去依靠，值得去爱一辈子。再见了，我喜欢的人，再见了，我的回忆。',
+							paragraph3: '过客',
+							paragraph4: '2023-02-14',
+							p0_index: 0,
+							p1_index: 0,
+							p2_index: 0,
+							p3_index: 0,
+							p4_index: 0,
+							allCount: 0
+						}
+					},
+					mounted() {
+						this.allCount = this.paragraph0.length + this.paragraph1.length + this.paragraph2.length +
+							this.paragraph3.length + this.paragraph4.length
+						this.showText()
+					},
+					methods: {
+						showText() {
+							if (this.p0_index < this.paragraph0.length) {
+								this.p0_index++
+							} else {
+								if (this.p1_index < this.paragraph1.length) {
+									this.p1_index++
+								} else {
+									if (this.p2_index < this.paragraph2.length) {
+										this.p2_index++
+									} else {
+										if (this.p3_index < this.paragraph3.length) {
+											this.p3_index++
+										} else {
+											if (this.p4_index < this.paragraph4.length) {
+												this.p4_index++
+											}
+										}
+									}
+								}
+							}
+							let currentCount = this.p0_index + this.p1_index + this.p2_index + this.p3_index + this
+								.p4_index;
+							if (currentCount < this.allCount) {
+								setTimeout(() => {
+									this.showText()
+								}, 200)
+							} else {
+
+							}
+						}
+					},
+
+				})
+			}
+		</script>
+	</body>
+
+
+</html>
